@@ -76,74 +76,108 @@ class _PokemonScreenState extends State<PokemonScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Buscar Pokémon'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            // Mostrar el Dropdown para seleccionar el Pokémon
-            DropdownButton<String>(
-              hint: Text('Selecciona un Pokémon'),
-              value: selectedPokemon,
-              items: pokemonNames.map((name) {
-                return DropdownMenuItem<String>(
-                  value: name,
-                  child: Text(name[0].toUpperCase() + name.substring(1)),
-                );
-              }).toList(),
-              onChanged: (value) {
-                if (value != null) {
-                  setState(() {
-                    selectedPokemon = value;
-                  });
-                  fetchPokemonDetails(value);
-                }
-              },
+      body: Container(
+        // Fondo con gradiente
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Color(0xFFEF3B36)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Imagen en la parte superior
+              Container(
+                margin: EdgeInsets.only(top: 10),
+                child: Image.network(
+                  'https://img.icons8.com/color/344/pokemon.png',
+                  height: 100,
+                  width: 100,
+                ),
+              ),
+              SizedBox(height: 10),
+              // Campo de búsqueda
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: DropdownButton<String>(
+                  hint: Text(
+                    'Selecciona un Pokémon',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  value: selectedPokemon,
+                  dropdownColor: Colors.redAccent,
+                  items: pokemonNames.map((name) {
+                    return DropdownMenuItem<String>(
+                      value: name,
+                      child: Text(
+                        name[0].toUpperCase() + name.substring(1),
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    if (value != null) {
+                      setState(() {
+                        selectedPokemon = value;
+                      });
+                      fetchPokemonDetails(value);
+                    }
+                  },
+                ),
+              ),
+              SizedBox(height: 10),
+              isLoading
+    ? Center(
+        child: CircularProgressIndicator(),
+      )
+    : pokemon != null
+        ? SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.network(
+                    pokemon!['sprites']['front_default'] ?? '',
+                    height: 200,
+                    width: 200,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    pokemon!['name']?.toString().toUpperCase() ?? '',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    'Peso: ${pokemon!['weight']?.toString() ?? 'N/A'}',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                  Text(
+                    'Habilidad principal: ${pokemon!['abilities'][0]['ability']['name'] ?? 'N/A'}',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 10),
-            isLoading
-                ? CircularProgressIndicator()
-                : pokemon != null
-                    ? SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Image.network(
-                              pokemon!['sprites']['front_default'] ?? '',
-                              height: 200,
-                              width: 200,
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              pokemon!['name']?.toString().toUpperCase() ?? '',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 5),
-                            Text(
-                              'Peso: ${pokemon!['weight']?.toString() ?? 'N/A'}',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            Text(
-                              'Habilidad principal: ${pokemon!['abilities'][0]['ability']['name'] ?? 'N/A'}',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
-                      )
-                    : errorMessage.isNotEmpty
-                        ? Text(
-                            errorMessage,
-                            style: TextStyle(
-                              color: Colors.red,
-                              fontSize: 16,
-                            ),
-                          )
-                        : Container()
-          ],
+          )
+        : errorMessage.isNotEmpty
+            ? Center(
+                child: Text(
+                  errorMessage,
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 16,
+                  ),
+                ),
+              )
+            : Container(),
+            ],
+          ),
         ),
       ),
     );
