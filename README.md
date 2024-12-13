@@ -17,7 +17,9 @@ El objetivo es generar una aplicación que me permita buscar y mostrar Pokémons
   Se encontrará dentro de la siguiente ruta: `<tu_proyecto>/build/app/outputs/flutter-apk/app-release.apk`
 
 ## Capturas de Pantalla:
-Adjunta imágenes de la app en funcionamiento.
+![image](https://github.com/user-attachments/assets/f87e4c8b-7900-4048-b1f0-9019050f65be)
+![image](https://github.com/user-attachments/assets/cc37b008-f8bc-43e4-a119-5c2ec1ffdb03)
+
 ## APIS utilizadas:
 Detalle del uso de:
 - Pokémon API (https://pokeapi.co)
