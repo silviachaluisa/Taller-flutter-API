@@ -24,3 +24,14 @@ El objetivo es generar una aplicación que me permita buscar y mostrar Pokémons
 Detalle del uso de:
 - Pokémon API (https://pokeapi.co)
 - La segunda API seleccionada (por ejemplo, OpenWeatherMap).
+  
+##  Error de la APK al ejecutarse en el teléfono
+> [!CAUTION]
+> Probablemente un error relacionado con el entorno de la aplicación en modo release puede presentarse.
+> Esto podría ocurrir debido a alguna restricción de red, problemas con los permisos de Internet en el archivo de configuración, o una configuración de seguridad de la API en modo release.
+
+**Pasos para solucionar el problema**
+- Asegurar los permisos de Internet en AndroidManifest.xml que se encuentra en la siguiente ruta: `android/app/src/main/AndroidManifest.xml` <br>
+- Agrega lo siguiente justo antes de la etiqueta `<application>`: `<uses-permission android:name="android.permission.INTERNET" />`<br>
+Puede verse algo asi:
+![{B6CFEE37-E1A7-4875-8F18-84DDFDCCC249}](https://github.com/user-attachments/assets/7c5f5f4e-b47e-4af3-92af-96e84b745ff8)
