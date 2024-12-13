@@ -1,16 +1,19 @@
-# pokemon_api
+# POKEMON API
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Descripción del Proyecto:
+El objetivo es generar una aplicación que me permita buscar y mostrar Pokémons pero con todas sus características, incluida su foto.
+## Instalación y Configuración:
+- Utilizar http para hacer solicitudes a las APIs
+- Agregar en el archivo pubspec.yaml
+`dependencies:
+  http: ^0.14.0`
+- Ejecutar los siguientes comandos 
+`flutter pub get`
+`flutter run`
+## Capturas de Pantalla:
+Adjunta imágenes de la app en funcionamiento.
+## APIS utilizadas:
+Detalle del uso de:
+- Pokémon API (https://pokeapi.co)
+- La segunda API seleccionada (por ejemplo, OpenWeatherMap).
