@@ -30,8 +30,22 @@ Detalle del uso de:
 > Probablemente un error relacionado con el entorno de la aplicación en modo release puede presentarse.
 > Esto podría ocurrir debido a alguna restricción de red, problemas con los permisos de Internet en el archivo de configuración, o una configuración de seguridad de la API en modo release.
 
-**Pasos para solucionar el problema**
+> [!TIP]
+> **Pasos para solucionar el problema**
 - Asegurar los permisos de Internet en AndroidManifest.xml que se encuentra en la siguiente ruta: `android/app/src/main/AndroidManifest.xml` <br>
-- Agrega lo siguiente justo antes de la etiqueta `<application>`: `<uses-permission android:name="android.permission.INTERNET" />`<br>
-Puede verse algo asi:
+- Agregar lo siguiente justo antes de la etiqueta `<application>`: `<uses-permission android:name="android.permission.INTERNET" />`<br>
+Puede verse algo asi:<br>
 ![{B6CFEE37-E1A7-4875-8F18-84DDFDCCC249}](https://github.com/user-attachments/assets/7c5f5f4e-b47e-4af3-92af-96e84b745ff8)
+
+- Probar las llamadas a la API
+Es posible que la llamada a la API falle en modo release debido a restricciones SSL o algo relacionado con la seguridad de las solicitudes.<br>
+Para asegurarte de que el servidor sea accesible correctamente, puedes agregar una validación de la URL en el código. <br>
+Por ejemplo: `final url = Uri.parse("https://pokeapi.co/api/v2/pokemon?limit=100");`
+En el código donde consumes la API (ApiService), verifica la conexión:
+![{14B17B10-92B6-40CD-B7CB-74BF67F6790F}](https://github.com/user-attachments/assets/a89f4bd1-2654-4212-ac85-494cd18d0bad)
+De esta forma puedes asegurarte de ver el error en la consola para entender mejor por qué falla en el modo release.
+Ejecuta nuevamente estos comandos: <br>
+`flutter clean`
+`flutter pub get`
+`flutter build apk --release`
+
