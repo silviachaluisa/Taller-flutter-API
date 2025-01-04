@@ -48,4 +48,23 @@ Ejecuta nuevamente estos comandos: <br>
 `flutter clean`
 `flutter pub get`
 `flutter build apk --release`
+## Pasos para la publicación de la apk:
+1)Generar una clave de firma:
+
+Abrir una terminal y ejecuta el siguiente comando para crear un archivo keystore
+`keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-key-alias`
+En mi caso: `keytool -genkey -v -keystore silvia-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias silvia-key-alias`
+Durante la ejecución, te pedirá completar los siguientes datos:
+
+Contraseña del keystore: (Elige una contraseña segura y anótala, la necesitarás más adelante).
+Nombre y apellidos: Silvia Chaluisa
+Nombre de la organización: Puedes poner "Personal" o el nombre de tu proyecto.
+Nombre de la unidad organizativa: Desarrollo de Software
+Ciudad o localidad: Tu ciudad
+Estado o provincia: Tu provincia
+País (código de 2 letras): Código ISO de tu país (por ejemplo, EC para Ecuador).
+Una vez completes estos pasos, se generará el archivo silvia-release-key.jks en el directorio donde ejecutaste el comando.
+
+Generar la apk con el siguiente comando: `flutter build apk --release`
+
 
