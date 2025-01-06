@@ -48,23 +48,52 @@ Ejecuta nuevamente estos comandos: <br>
 `flutter clean`
 `flutter pub get`
 `flutter build apk --release`
-## Pasos para la publicación de la apk:
-1)Generar una clave de firma:
+## Pasos para generar una clave de firma de la apk:<br>
 
-Abrir una terminal y ejecuta el siguiente comando para crear un archivo keystore
-`keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-key-alias`
-En mi caso: `keytool -genkey -v -keystore silvia-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias silvia-key-alias`
-Durante la ejecución, te pedirá completar los siguientes datos:
+- Abrir una terminal y ejecuta el siguiente comando para crear un archivo keystore<br>
+`keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-key-alias`<br>
+- En mi caso: `keytool -genkey -v -keystore silvia-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias silvia-key-alias`<br>
+- Durante la ejecución, pedirá completar los siguientes datos:
 
-Contraseña del keystore: (Elige una contraseña segura y anótala, la necesitarás más adelante).
-Nombre y apellidos: Silvia Chaluisa
-Nombre de la organización: Puedes poner "Personal" o el nombre de tu proyecto.
-Nombre de la unidad organizativa: Desarrollo de Software
-Ciudad o localidad: Tu ciudad
-Estado o provincia: Tu provincia
-País (código de 2 letras): Código ISO de tu país (por ejemplo, EC para Ecuador).
-Una vez completes estos pasos, se generará el archivo silvia-release-key.jks en el directorio donde ejecutaste el comando.
+Contraseña del keystore: (Elige una contraseña segura y anótala, la necesitarás más adelante).<br>
+Nombre y apellidos: Silvia Chaluisa<br>
+Nombre de la organización: Puedes poner "Personal" o el nombre de tu proyecto.<br>
+Nombre de la unidad organizativa: Desarrollo de Software<br>
+Ciudad o localidad: Tu ciudad<br>
+Estado o provincia: Tu provincia<br>
+País (código de 2 letras): Código ISO de tu país (por ejemplo, EC para Ecuador).<br>
+- Una vez completes estos pasos, se generará el archivo silvia-release-key.jks en el directorio donde se ejecuto el comando.<br>
+- Generar la apk con el siguiente comando: `flutter build apk --release`<br>
+## Pasos para la publicación de la apk:<br>
+- En este caso la plataforma seleecionada para la publicación de la apk es:<br>
 
-Generar la apk con el siguiente comando: `flutter build apk --release`
+![image](https://github.com/user-attachments/assets/0dd19fdc-3e48-483d-be45-8cd03d05d1dd)
+
+Si no se tiene una cuenta se debe crearla:<br>
+![image](https://github.com/user-attachments/assets/b0ed8d5c-8c91-49ac-9ac0-7cb58a0e2cee)
+
+Subir la apk creada:<br>
+ ![image](https://github.com/user-attachments/assets/2e798dd5-bd3a-430c-ac06-a13d4e555867)
+ ![image](https://github.com/user-attachments/assets/8b5f6322-8e1b-4d9c-b773-1fb1b6e87971)
+ ![image](https://github.com/user-attachments/assets/49039854-6e1c-4a8e-a7d9-1c7513b35140)
+
+ - Paso 1 <br>
+ Se ingresan los detalles solicitados en los campos
+ ![image](https://github.com/user-attachments/assets/5a5a8965-8f92-4199-8b3a-a2d67989d733)
+- Paso 2<br>
+Completar el cuestionario para poder completar el paso 
+![{800053D4-9FE5-427C-BFBF-506312680A9B}](https://github.com/user-attachments/assets/dfb3f31b-9c3b-405f-9970-a5f4f5c15042)
+
+- Paso 3<br>
+Ingresar las imagenes de acorde a las resoluciones solicitadas
+![image](https://github.com/user-attachments/assets/7f2520ad-7399-4059-9396-95c539c3462e)
+- Paso 4<br>
+Se envia la solicitud para la publicación de la apk
+![image](https://github.com/user-attachments/assets/c22918a4-f52e-4ac1-970c-57504d4781f4)
+- Estado para la APP
+![image](https://github.com/user-attachments/assets/d2622509-97b9-4a36-9abc-aa3c50977767)
+
+
+
 
 
